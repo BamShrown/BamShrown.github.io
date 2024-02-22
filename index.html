@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polar Grid Tool</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="tutorialPopup">
+        <div class="popupImg">
+            <img src="logo.png" alt="" style="margin-bottom: 20px">
+        </div>
+        <p>This tool helps to map your whole career journey so far, across all companies you have worked for, not just COTY.</p>
+        <p> The three rings of the wheel refer to the three stages of your lifetime career: Early (In your first 10 years), Mid (In your career years of 11-20) and Later (after the 20th year of career experience).</p>
+        <p>Once you start, type in your name and click start. Please note once started do not refresh browser, or leave open and return later, as progress will not be saved.</p>
+        <p>The wheel is composed of 6 domains in the center and each domain consists of different areas of experiences, at the outside of the Wheel. To see what each area of experiences means you can hoover over these words and see the definitions. </p>
+        <p>Click on a segment you wish to complete within the wheel. A box will pop-up to enter the Job Title and Company where you gained this experience. Input them and then click ADD. Each time you do this the relevant segment of the wheel will become colored-in and the role information will be added below the wheel in the correct color code. You can use the same role to fill in multiple areas of experience if appropriate. </p>
+        <p>You can delete your role details at any time, just press X on the box below the wheel of the role you would like to delete. You will be asked if you want this section on the Wheel cleared. Clicking OK will clear all color from this section of the wheel, clicking CANCEL will keep the color there, perhaps as it pertains also to a different role.</p>
+        <p>Once happy with all your input you can click PRINT and this will open your print window. You need to make sure that you select option "Background Graphics" and click select save as PDF or Print (see below image)</p>
+        <div class="buttonDiv">
+            <button id="closeTutorial" style="margin-top: 20px;">START</button>
+        </div>
+
+             
+    </div>
+    <div id="enterName">
+        <label for="nameEntry">Please enter your full name:</label>
+        <input type="text" id="nameEntry">
+        <button id="nameStart">START</button>
+    </div>
+    <div class="container">
+        <div class="controls" style="display: none;">
+            <label for="sectors">Sectors:</label>
+            <input type="number" id="sectors" value="21" min="2" max="36">
+            <button onclick="drawGrid()">Draw Grid</button>
+            <div class="option-inputs">
+                <label for="options">Options (comma-separated):</label>
+                <input type="text" id="options" placeholder="Operations, Planning, Market Supply, Digital Analytics, Project Management, Quality & Process Assurance" value="Operations, Planning, Market Supply, Digital Analytics, Project Management, Quality & Process Assurance">
+                <label for="sizes">Sizes (comma-separated):</label>
+                <input type="text" id="sizes" placeholder="6, 3, 3, 3, 3, 3" value="6, 3, 3, 3, 3, 3">
+                <label for="titles">Segment Titles (comma-separated):</label>
+                <input type="text" id="titles" placeholder="Warehouse Management, Freight Management, Network Design, Engineering, Production Management, Operational Excellence, Life Cycle Management, TPM, Demand & Supply Planning, Value Creation, Customer Collaboration & Business Partnership, Market Forecasting & S&OP, Digital Engineering Analytics, Industrial 4.0 Lighthouse, AI & Machine Learning, Organizational Transformation, Inside out Benchmarking, Analytics & Stakeholder Management, Health & Safety, Sustainability, Quality & Process Management" value="Warehouse Management, Freight Management, Network Design, Engineering, Production Management, Operational Excellence, Life Cycle Management, TPM, Demand & Supply Planning, Value Creation, Customer Collaboration & Business Partnership, Market Forecasting & S&OP, Digital Engineering Analytics, Industrial 4.0 Lighthouse, AI & Machine Learning, Organizational Transformation, Inside out Benchmarking, Analytics & Stakeholder Management, Health & Safety, Sustainability, Quality & Process Management">
+                <button onclick="updateGrid()">Update Grid</button>
+            </div>
+        </div>
+
+        <!-- Name of user and wheel -->
+
+        <div id="mySalesWheel">
+
+        </div>
+
+        <!-- Career wheels key -->
+
+        <div id="careerWheelsKey">
+            <div class="careerKey1">
+                <div class="lowCircleKey">
+
+                </div>
+                <p>
+                    Early Career: Years 0 - 10
+                </p>
+            </div>
+            <div class="careerKey2">
+                <div class="midCircleKey">
+
+                </div>
+                <p>
+                    Mid Career: Years 11 - 20
+                </p>
+            </div>
+            <div class="careerKey3">
+                <div class="highCircleKey">
+
+                </div>
+                <p>
+                    Later Career: Years 20+
+                </p>
+            </div>
+        </div>
+
+        <!-- Categories Key -->
+
+        <div id="categoriesKey">
+
+        </div>
+
+        <!-- Print Button -->
+
+        <div id="printDiv">
+            <button onclick="print()">PRINT</button>
+        </div>
+
+        <!-- Sales Wheel -->
+        <div id="gridContainer"></div>
+
+          
+
+        <!-- Popup Forms -->
+        <div class="categoryOption1" id="popupForm1" style="display: none; position: fixed; width: 200px; left: 50%; top: 50%; transform: translate(-50%, -50%); padding: 20px; box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);">
+            <form>
+                <label for="jobTitle" >Job Title:</label><br>
+                <input type="text" id="jobTitle1" name="jobTitle"><br>
+                <label for="companyName">Company Name:</label><br>
+                <input type="text" id="companyName1" name="companyName"><br><br>
+                <div class="labelButtons">
+                    <button type="button" onclick="hidePopupForm1()">CLOSE</button>
+                    <button type="button" onclick="submitForm()">ADD</button>
+                </div>
+                    
+            </form>
+        </div>
+        <div class="categoryOption2" id="popupForm2" style="display: none; position: fixed; width: 200px; left: 50%; top: 50%; transform: translate(-50%, -50%); pADDing: 20px; box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);">
+            <form>
+                <label for="jobTitle">Job Title:</label><br>
+                <input type="text" id="jobTitle2" name="jobTitle"><br>
+                <label for="companyName">Company Name:</label><br>
+                <input type="text" id="companyName2" name="companyName"><br><br>
+                <div class="labelButtons">
+                    <button type="button" onclick="hidePopupForm2()">CLOSE</button>
+                    <button type="button" onclick="submitForm()">ADD</button>
+                </div>
+                </form>
+        </div>
+        <div class="categoryOption3" id="popupForm3" style="display: none; position: fixed; width: 200px; left: 50%; top: 50%; transform: translate(-50%, -50%); pADDing: 20px; box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);">
+            <form>
+                <label for="jobTitle">Job Title:</label><br>
+                <input type="text" id="jobTitle3" name="jobTitle"><br>
+                <label for="companyName">Company Name:</label><br>
+                <input type="text" id="companyName3" name="companyName"><br><br>
+                <div class="labelButtons">
+                    <button type="button" onclick="hidePopupForm3()">CLOSE</button>
+                    <button type="button" onclick="submitForm()">ADD</button>
+                </div>
+                </form>
+        </div>
+        <div class="categoryOption4" id="popupForm4" style="display: none; position: fixed; width: 200px; left: 50%; top: 50%; transform: translate(-50%, -50%); pADDing: 20px; box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);">
+            <form>
+                <label for="jobTitle">Job Title:</label><br>
+                <input type="text" id="jobTitle4" name="jobTitle"><br>
+                <label for="companyName">Company Name:</label><br>
+                <input type="text" id="companyName4" name="companyName"><br><br>
+                <div class="labelButtons">
+                    <button type="button" onclick="hidePopupForm4()">CLOSE</button>
+                    <button type="button" onclick="submitForm()">ADD</button>
+                </div>
+                </form>
+        </div>
+        <div class="categoryOption5" id="popupForm5" style="display: none; position: fixed; width: 200px; left: 50%; top: 50%; transform: translate(-50%, -50%); pADDing: 20px; box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);">
+            <form>
+                <label for="jobTitle">Job Title:</label><br>
+                <input type="text" id="jobTitle5" name="jobTitle"><br>
+                <label for="companyName">Company Name:</label><br>
+                <input type="text" id="companyName5" name="companyName"><br><br>
+                <div class="labelButtons">
+                    <button type="button" onclick="hidePopupForm5()">CLOSE</button>
+                    <button type="button" onclick="submitForm()">ADD</button>
+                </div>
+                    
+            </form>
+        </div>
+        <div class="categoryOption6" id="popupForm6" style="display: none; position: fixed; width: 200px; left: 50%; top: 50%; transform: translate(-50%, -50%); padding: 20px; box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);">
+            <form>
+                <label for="jobTitle">Job Title:</label><br>
+                <input type="text" id="jobTitle6" name="jobTitle"><br>
+                <label for="companyName">Company Name:</label><br>
+                <input type="text" id="companyName6" name="companyName"><br><br>
+                <div class="labelButtons">
+                    <button type="button" onclick="hidePopupForm6()">CLOSE</button>
+                    <button type="button" onclick="submitForm()">ADD</button>
+                </div>
+                    
+            </form>
+        </div>
+
+        <div id="podSection">
+        </div>
+    </div>
+</body>
+<script src="script.js"></script>
+</html>
