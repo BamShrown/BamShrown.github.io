@@ -112,7 +112,7 @@ function showPopupForm(segment, category, rim) {
         }
     });
 
-    // console.log(segment, category, rim);
+    
 
     
     
@@ -219,81 +219,91 @@ function submitForm(segment, category, rim) {
         category = classesArray[1];
         rim = classesArray[2];
 
-    
+        console.log(classesArray);
 
-    // console.log(category);
-    if (category == 'categoryOption1') {
-        var jobTitle = document.getElementById("jobTitle1").value;
-        var companyName = document.getElementById("companyName1").value;
-    } else if (category == 'categoryOption2') {
-        var jobTitle = document.getElementById("jobTitle2").value;
-        var companyName = document.getElementById("companyName2").value;
-    } else if (category == 'categoryOption3') {
-        var jobTitle = document.getElementById("jobTitle3").value;
-        var companyName = document.getElementById("companyName3").value;
-    } else if (category == 'categoryOption4') {
-        var jobTitle = document.getElementById("jobTitle4").value;
-        var companyName = document.getElementById("companyName4").value;
-    } else if (category == 'categoryOption5') {
-        var jobTitle = document.getElementById("jobTitle5").value;
-        var companyName = document.getElementById("companyName5").value;
-    } else if (category == 'categoryOption6') {
-        var jobTitle = document.getElementById("jobTitle6").value;
-        var companyName = document.getElementById("companyName6").value;
-    } else if (category == 'categoryOption7') {
-        var jobTitle = document.getElementById("jobTitle7").value;
-        var companyName = document.getElementById("companyName7").value;
-    } else if (category == 'categoryOption8') {
-        var jobTitle = document.getElementById("jobTitle8").value;
-        var companyName = document.getElementById("companyName8").value;
-    } else if (category == 'categoryOption9') {
-        var jobTitle = document.getElementById("jobTitle9").value;
-        var companyName = document.getElementById("companyName9").value;
-    } else if (category == 'categoryOption10') {
-        var jobTitle = document.getElementById("jobTitle10").value;
-        var companyName = document.getElementById("companyName10").value;
-    } 
+        // If segment has already been chosen, show this alert
+        if (classesArray.includes('chosen')) {
+            // If 'chosen' exists, show an alert
+            alert('This segment has already been chosen, to remove it, please press the cross on the corresponding box below.');
+            
+        } else {
 
-    if (jobTitle.trim() === "") {
-        alert("Please enter a job title");
-    } else if (companyName.trim() === "") {
-        alert("Please enter a company name");
-    } else {
+            // console.log(category);
+            if (category == 'categoryOption1') {
+                var jobTitle = document.getElementById("jobTitle1").value;
+                var companyName = document.getElementById("companyName1").value;
+            } else if (category == 'categoryOption2') {
+                var jobTitle = document.getElementById("jobTitle2").value;
+                var companyName = document.getElementById("companyName2").value;
+            } else if (category == 'categoryOption3') {
+                var jobTitle = document.getElementById("jobTitle3").value;
+                var companyName = document.getElementById("companyName3").value;
+            } else if (category == 'categoryOption4') {
+                var jobTitle = document.getElementById("jobTitle4").value;
+                var companyName = document.getElementById("companyName4").value;
+            } else if (category == 'categoryOption5') {
+                var jobTitle = document.getElementById("jobTitle5").value;
+                var companyName = document.getElementById("companyName5").value;
+            } else if (category == 'categoryOption6') {
+                var jobTitle = document.getElementById("jobTitle6").value;
+                var companyName = document.getElementById("companyName6").value;
+            } else if (category == 'categoryOption7') {
+                var jobTitle = document.getElementById("jobTitle7").value;
+                var companyName = document.getElementById("companyName7").value;
+            } else if (category == 'categoryOption8') {
+                var jobTitle = document.getElementById("jobTitle8").value;
+                var companyName = document.getElementById("companyName8").value;
+            } else if (category == 'categoryOption9') {
+                var jobTitle = document.getElementById("jobTitle9").value;
+                var companyName = document.getElementById("companyName9").value;
+            } else if (category == 'categoryOption10') {
+                var jobTitle = document.getElementById("jobTitle10").value;
+                var companyName = document.getElementById("companyName10").value;
+            } 
+
+            if (jobTitle.trim() === "") {
+                alert("Please enter a job title");
+            } else if (companyName.trim() === "") {
+                alert("Please enter a company name");
+            } else {
 
 
-    selectedElement.classList.add("chosen");
-    
-    chosenCount++;
-    // Use the incremented count to assign a unique chosen class (e.g., 'chosen1')
-    selectedElement.classList.add(`chosen${chosenCount}`);
-    // Create and show popup with variable info
-    createAndShowPopup(segment, category, rim, jobTitle, companyName, chosenCount);
-    
-        if (category == 'categoryOption1') {
-            hidePopupForm1();
-        } else if (category == 'categoryOption2') {
-            hidePopupForm2();
-        } else if (category == 'categoryOption3') {
-            hidePopupForm3();
-        } else if (category == 'categoryOption4') {
-            hidePopupForm4();
-        } else if (category == 'categoryOption5') {
-            hidePopupForm5();
-        } else if (category == 'categoryOption6') {
-            hidePopupForm6();
-        } else if (category == 'categoryOption7') {
-            hidePopupForm7();
-        } else if (category == 'categoryOption8') {
-            hidePopupForm8();
-        } else if (category == 'categoryOption9') {
-            hidePopupForm9();
-        } else if (category == 'categoryOption10') {
-            hidePopupForm10();
-        }
-    
+            selectedElement.classList.add("chosen");
+            
+            chosenCount++;
+            // Use the incremented count to assign a unique chosen class (e.g., 'chosen1')
+            selectedElement.classList.add(`chosen${chosenCount}`);
+            // Create and show popup with variable info
+            createAndShowPopup(segment, category, rim, jobTitle, companyName, chosenCount);
+            
+                if (category == 'categoryOption1') {
+                    hidePopupForm1();
+                } else if (category == 'categoryOption2') {
+                    hidePopupForm2();
+                } else if (category == 'categoryOption3') {
+                    hidePopupForm3();
+                } else if (category == 'categoryOption4') {
+                    hidePopupForm4();
+                } else if (category == 'categoryOption5') {
+                    hidePopupForm5();
+                } else if (category == 'categoryOption6') {
+                    hidePopupForm6();
+                } else if (category == 'categoryOption7') {
+                    hidePopupForm7();
+                } else if (category == 'categoryOption8') {
+                    hidePopupForm8();
+                } else if (category == 'categoryOption9') {
+                    hidePopupForm9();
+                } else if (category == 'categoryOption10') {
+                    hidePopupForm10();
+                }
+            
+            }
     }
     
 }
+
+// Creating and showing the popup boxes at the bottom
 
 function createAndShowPopup(segment, category, rim, jobTitle, companyName, chosenId) {
     // Create popup div
@@ -321,9 +331,6 @@ function createAndShowPopup(segment, category, rim, jobTitle, companyName, chose
     chosenCategory = `${category}`;
     chosenRim = `${rim}`;
 
-    console.log(chosenSegment);
-    console.log(chosenCategory);
-    console.log(chosenRim);
 
     // Create paragraphs for segment, category, rim, job title and company name
 
@@ -366,6 +373,14 @@ function createAndShowPopup(segment, category, rim, jobTitle, companyName, chose
             iconDiv.className = "highCircle5";
         } else if (categorySelector == 6) {
             iconDiv.className = "highCircle6";
+        } else if (categorySelector == 7) {
+            iconDiv.className = "highCircle7";
+        } else if (categorySelector == 8) {
+            iconDiv.className = "highCircle8";
+        } else if (categorySelector == 9) {
+            iconDiv.className = "highCircle9";
+        } else if (categorySelector == 10) {
+            iconDiv.className = "highCircle10";
         } 
     }
 
@@ -373,10 +388,10 @@ function createAndShowPopup(segment, category, rim, jobTitle, companyName, chose
     // Code to decide which segment title is chosen
     
     let segmentNumber = parseInt(chosenSegment.charAt(chosenSegment.length - 1));
-    // console.log(chosenSegment);
+   
     // Adjust for zero-based index of arrays in JavaScript
     let index = chosenSegment.replace('segmentNumber', '') - 1;
-    console.log(index);
+  
     // Use the index to find the corresponding item in titlesGlobal
     let titleAnswer;
     if (index >= 0 && index < titlesGlobal.length) {
@@ -385,7 +400,7 @@ function createAndShowPopup(segment, category, rim, jobTitle, companyName, chose
         titleAnswer = "Index out of range";
     }
 
-    // console.log(titlesGlobal[19]);
+    
 
     var titleAnswerP = document.createElement("p");
     titleAnswerP.textContent = titleAnswer;
@@ -662,7 +677,9 @@ function updateGrid() {
 
 
 let sizeLength = updateGrid();
+console.log(sizeLength);
 
+// Ignore this (was a random color selector incase we needed)
 function getRandomColor() {
     const colors = ['#a61e2f', '#A5825A', '#182852', '#487A7C', '#FFCE51', '#DC8633'];
     // Randomly choose one of the colors from the array

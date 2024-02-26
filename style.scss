@@ -6,8 +6,12 @@ $category3Color: #182852;
 $category4Color: #487A7C;
 $category5Color: #FFCE51;
 $category6Color: #DC8633;
+$category7Color: #d670bc;
+$category8Color: #3389DC;
+$category9Color: #7C4A48;
+$category10Color: #73BF82;
 
-
+#d670bc
 // Styling
 
 body, html {
@@ -167,8 +171,9 @@ form {
 }
 
 #mySalesWheel {
+    color: $category3Color;
 
-    p {
+    h1 {
         color: $category3Color;
     }
 }
@@ -322,6 +327,33 @@ input[type="number"] {
     background-color: $category6Color;
 }
 
+
+.categoryOption7 {
+    fill: $category7Color;
+    stroke: -1px;
+    background-color: $category7Color;
+}
+
+
+.categoryOption8 {
+    fill: $category8Color;
+    stroke: -1px;
+    background-color: $category8Color;
+}
+
+.categoryOption9 {
+    fill: $category9Color;
+    stroke: -1px;
+    background-color: $category9Color;
+}
+
+.categoryOption10 {
+    fill: $category10Color;
+    stroke: -1px;
+    background-color: $category10Color;
+}
+
+
 .selected {
     fill: #cfcfcf!important;
 }
@@ -333,7 +365,11 @@ $category-colors: (
   4: $category4Color,
   5: $category5Color,
   6: $category6Color,
-  // Add more colors as needed
+  7: $category7Color,
+  8: $category8Color,
+  9: $category9Color,
+  10: $category10Color
+  
 );
 
 @function get-color($index) {
@@ -528,6 +564,62 @@ $category-colors: (
     background-color: transparent;
     background-image:
         linear-gradient(-90deg, $category6Color 50%, transparent 50%),
+        linear-gradient(180deg, white 50%, transparent 50%);
+}
+.highCircle7{
+    height: 28px;
+    width: 28px;
+    min-height: 28px;
+    min-width: 28px;
+    margin-right: 10px;          
+    display: inline-block;
+    border-radius: 50%;
+    border: 1px solid white;
+    background-color: transparent;
+    background-image:
+        linear-gradient(-90deg, $category7Color 50%, transparent 50%),
+        linear-gradient(180deg, white 50%, transparent 50%);
+}
+.highCircle8{
+    height: 28px;
+    width: 28px;
+    min-height: 28px;
+    min-width: 28px;
+    margin-right: 10px;          
+    display: inline-block;
+    border-radius: 50%;
+    border: 1px solid white;
+    background-color: transparent;
+    background-image:
+        linear-gradient(-90deg, $category8Color 50%, transparent 50%),
+        linear-gradient(180deg, white 50%, transparent 50%);
+}
+.highCircle9{
+    height: 28px;
+    width: 28px;
+    min-height: 28px;
+    min-width: 28px;
+    margin-right: 10px;          
+    display: inline-block;
+    border-radius: 50%;
+    border: 1px solid white;
+    background-color: transparent;
+    background-image:
+        linear-gradient(-90deg, $category9Color 50%, transparent 50%),
+        linear-gradient(180deg, white 50%, transparent 50%);
+}
+.highCircle10{
+    height: 28px;
+    width: 28px;
+    min-height: 28px;
+    min-width: 28px;
+    margin-right: 10px;          
+    display: inline-block;
+    border-radius: 50%;
+    border: 1px solid white;
+    background-color: transparent;
+    background-image:
+        linear-gradient(-90deg, $category10Color 50%, transparent 50%),
         linear-gradient(180deg, white 50%, transparent 50%);
 }
 
