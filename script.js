@@ -54,6 +54,15 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
+// Showing tutorial
+
+function showTutorial() {
+    var tutorialPopup = document.getElementById('tutorialPopup');
+    if (tutorialPopup) {
+      tutorialPopup.classList.remove('hide');
+    }
+  }
+
 // Finding segment title names
 
 const titlesInput = document.getElementById('titles').value; // Assuming you have an input field for titles
