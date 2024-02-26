@@ -14,10 +14,10 @@
         <p>This tool helps to map your whole career journey so far, across all companies you have worked for, not just COTY.</p>
         <p> The three rings of the wheel refer to the three stages of your lifetime career: Early (In your first 10 years), Mid (In your career years of 11-20) and Later (after the 20th year of career experience).</p>
         <p>Once you start, type in your name and click start. Please note once started do not refresh browser, or leave open and return later, as progress will not be saved.</p>
-        <p>The wheel is composed of 6 domains in the center and each domain consists of different areas of experiences, at the outside of the Wheel. To see what each area of experiences means you can hoover over these words and see the definitions. </p>
+        <p>The wheel is composed of domains in the center and each domain consists of different areas of experiences, at the outside of the Wheel. To see what each area of experiences means you can hover over these words and see the definitions. </p>
         <p>Click on a segment you wish to complete within the wheel. A box will pop-up to enter the Job Title and Company where you gained this experience. Input them and then click ADD. Each time you do this the relevant segment of the wheel will become colored-in and the role information will be added below the wheel in the correct color code. You can use the same role to fill in multiple areas of experience if appropriate. </p>
         <p>You can delete your role details at any time, just press X on the box below the wheel of the role you would like to delete.</p>
-        <p>Once happy with all your input you can click PRINT and this will open your print window. You need to make sure that you select option "Background Graphics" and click select save as PDF or Print</p>
+        <p>Once happy with all your input you can click PRINT and this will open your print window. You need to make sure that you select option "Background Graphics" and click select save as PDF or Print.</p>
         <!-- <img src="bg_graphics.PNG" alt=""> -->
         <div class="buttonDiv">
             <button id="closeTutorial" style="margin-top: 20px;">START</button>
@@ -42,11 +42,13 @@
             <button onclick="drawGrid()">Draw Grid</button>
             <div class="option-inputs">
                 <label for="options">Options (comma-separated):</label>
-                <input type="text" id="options" placeholder="Operations, Planning, Market Supply, Digital Analytics, Project Management, Quality & Process Assurance" value="Operations, Planning, Market Supply, Digital Analytics, Project Management, Quality & Process Assurance">
+                <input type="text" id="options" placeholder="Choose Categories" value="Operations, Planning, Market Supply, Digital Analytics, Project Management, Quality & Process Assurance">
                 <label for="sizes">Sizes (comma-separated):</label>
                 <input type="text" id="sizes" placeholder="6, 3, 3, 3, 3, 3" value="6, 3, 3, 3, 3, 3">
                 <label for="titles">Segment Titles (comma-separated):</label>
-                <input type="text" id="titles" placeholder="Warehouse Management, Freight Management, Network Design, Engineering, Production Management, Operational Excellence, Life Cycle Management, TPM, Demand & Supply Planning, Value Creation, Customer Collaboration & Business Partnership, Market Forecasting & S&OP, Digital Engineering Analytics, Industrial 4.0 Lighthouse, AI & Machine Learning, Organizational Transformation, Inside out Benchmarking, Analytics & Stakeholder Management, Health & Safety, Sustainability, Quality & Process Management" value="Warehouse Management, Freight Management, Network Design, Engineering, Production Management, Operational Excellence, Life Cycle Management, TPM, Demand & Supply Planning, Value Creation, Customer Collaboration & Business Partnership, Market Forecasting & S&OP, Digital Engineering Analytics, Industrial 4.0 Lighthouse, AI & Machine Learning, Organizational Transformation, Inside out Benchmarking, Analytics & Stakeholder Management, Health & Safety, Sustainability, Quality & Process Management">
+                <input type="text" id="titles" placeholder="Select Titles" value="Warehouse Management, Freight Management, Network Design, Engineering, Production Management, Operational Excellence, Life Cycle Management, TPM, Demand & Supply Planning, Value Creation, Customer Collaboration & Business Partnership, Market Forecasting & S&OP, Digital Engineering Analytics, Industrial 4.0 Lighthouse, AI & Machine Learning, Organizational Transformation, Inside out Benchmarking, Analytics & Stakeholder Management, Health & Safety, Sustainability, Quality & Process Management">
+                <label for="titleDescriptions">Title Descritpions (comma-separated):</label>
+                <input type="text" id="titleDescriptions" placeholder="Select Titles" value="Warehouse Management Description, Freight Management Description, Network Design Description, Engineering Description, Production Management Description, Operational Excellence Description, Life Cycle Management Description, TPM Description, Demand & Supply Planning Description, Value Creation Description, Customer Collaboration & Business Partnership Description, Market Forecasting & S&OP Description, Digital Engineering Analytics Description, Industrial 4.0 Lighthouse Description, AI & Machine Learning Description, Organizational Transformation Description, Inside out Benchmarking Description, Analytics & Stakeholder Management Description, Health & Safety Description, Sustainability Description, Quality & Process Management Description">
                 <button onclick="updateGrid()">Update Grid</button>
             </div>
         </div>
@@ -95,14 +97,17 @@
         <!-- Print Button -->
 
         <div id="printDiv">
-            <button style="margin-right: 10px;" onclick="showTutorial()">TUTORIAL</button>
-            <button onclick="print()">PRINT</button>
+            <button style="margin-right: 5px;" onclick="showTutorial()">TUTORIAL</button>
+            <button style="margin-left: 5px;" onclick="print()">PRINT</button>
         </div>
 
         <!-- Sales Wheel -->
         <div id="gridContainer"></div>
 
-          
+        <!-- Description Boxes -->
+
+        <div id="tooltip"></div>
+
 
         <!-- Popup Forms -->
         <div class="categoryOption1" id="popupForm1" style="display: none; position: fixed; width: 200px; left: 50%; top: 50%; transform: translate(-50%, -50%); padding: 20px; box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);">

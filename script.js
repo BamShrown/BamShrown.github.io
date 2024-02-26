@@ -3,6 +3,13 @@
 
 const optionsInput = document.getElementById('options');
 
+// Making the titles key
+
+const descriptionsInput = document.getElementById('titleDescriptions');
+
+const descriptionsValue = descriptionsInput.value;
+const titleDescriptions = descriptionsValue.split(', ');
+
 // Get the div where categories will be filled
 const categoriesDiv = document.getElementById('categoriesKey');
 
@@ -10,6 +17,8 @@ const categoriesDiv = document.getElementById('categoriesKey');
 const optionsValue = optionsInput.value;
 const optionsArray = optionsValue.split(', ');
 
+
+// console.log(titleDescriptions);
 // Loop through the options array and create div elements for each option
 optionsArray.forEach((option, index) => {
     // Create a new div element
@@ -228,7 +237,7 @@ function submitForm(segment, category, rim) {
         category = classesArray[1];
         rim = classesArray[2];
 
-        console.log(classesArray);
+        // console.log(classesArray);
 
         // If segment has already been chosen, show this alert
         if (classesArray.includes('chosen')) {
@@ -529,7 +538,7 @@ function drawGrid(optionsMap = new Map()) {
 // Creating the segments
 
 let segmentSelector = [];
-function drawSegment(svg, totalSectors, sectorIndex, ringRadii, color, segmentClassName, optionClassName, titles, titleIndex) {
+function drawSegment(svg, totalSectors, sectorIndex, ringRadii, color, segmentClassName, optionClassName, titles, titleIndex, titleDescriptions) {
     const svgNS = "http://www.w3.org/2000/svg";
     const anglePerSector = (2 * Math.PI) / totalSectors;
     const startAngle = sectorIndex * anglePerSector;
@@ -590,6 +599,7 @@ function drawSegment(svg, totalSectors, sectorIndex, ringRadii, color, segmentCl
         text.setAttribute('text-anchor', 'middle');
         text.setAttribute('font-size', '2');
         text.setAttribute('font-weight', 'bold');
+        text.setAttribute('cursor', 'pointer');
         
         for (let i = 0; i < ringRadii.length; i++) {
             const innerRadius = i === 0 ? 0 : ringRadii[i - 1];
@@ -630,6 +640,33 @@ function drawSegment(svg, totalSectors, sectorIndex, ringRadii, color, segmentCl
             tspan.textContent = currentLine.trim();
             text.appendChild(tspan);
         }
+
+        // Description Hover event
+        const descriptionsInput = document.getElementById('titleDescriptions');
+        const descriptionsValue = descriptionsInput.value;
+        const titleDescriptions = descriptionsValue.split(', ');
+        const description = titleDescriptions[titleIndex];
+
+        // Mouse enter event
+        text.addEventListener('mouseenter', function(e) {
+            // Get tooltip div and set its content
+            const tooltip = document.getElementById('tooltip');
+            tooltip.innerHTML = description; // Set the tooltip text to the description
+            
+            // Calculate position; this is a simple example, you might need to adjust
+            const rect = e.target.getBoundingClientRect();
+            tooltip.style.left = `${rect.left + window.scrollX + rect.width / 2}px`;
+            tooltip.style.top = `${rect.top + window.scrollY - 20}px`; // Adjust as needed
+            tooltip.setAttribute('class', `${segmentClassName} ${optionClassName} selectableItem`); 
+            tooltip.style.display = 'block'; // Show the tooltip
+        });
+
+        // Mouse leave event
+        text.addEventListener('mouseleave', function() {
+            const tooltip = document.getElementById('tooltip');
+            tooltip.style.display = 'none'; // Hide the tooltip
+        });
+
         
         svg.appendChild(text);
     }
@@ -686,7 +723,7 @@ function updateGrid() {
 
 
 let sizeLength = updateGrid();
-console.log(sizeLength);
+// console.log(sizeLength);
 
 // Ignore this (was a random color selector incase we needed)
 function getRandomColor() {

@@ -93,6 +93,20 @@ form {
     border-radius: 8px;
 }
 
+#tooltip {
+    width: 290px;
+    margin: 20px;
+    padding: 10px 15px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 8px;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    max-width: 400px;
+    color: white;
+}
+
 #tutorialPopup {
     display: block;
     position: fixed;
