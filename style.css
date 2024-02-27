@@ -144,6 +144,10 @@ form {
   flex-direction: column;
 }
 
+#tooltip {
+  display: none;
+}
+
 .gridCenterCircle {
   position: absolute;
   width: 262.7%;
