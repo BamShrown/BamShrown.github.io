@@ -462,6 +462,7 @@ function createAndShowPopup(segment, category, rim, jobTitle, companyName, chose
             const itemToUnchoose = document.querySelector(`.chosen${chosenId}`);
             if (itemToUnchoose) {
                 itemToUnchoose.classList.remove(`chosen${chosenId}`);
+                itemToUnchoose.classList.remove('chosen');
             }
             // Hide this popup specifically
             popupDiv.classList.add('hide');

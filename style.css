@@ -276,8 +276,9 @@ input[type=number] {
   }
   #gridContainer {
     /* All your print styles go here */
-    margin-top: 180px;
-    max-width: 480px !important;
+    margin-top: 250px;
+    margin-bottom: 170px;
+    width: 600px !important;
   }
   .infoPopup {
     width: 250px !important;
@@ -72359,7 +72360,7 @@ input[type=number] {
 
 #podSection {
   padding: 40px;
-  width: 100%;
+  width: 80%;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
