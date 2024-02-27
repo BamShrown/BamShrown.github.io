@@ -77,11 +77,10 @@ form {
 }
 
 #gridContainer {
-    width: 600px;
-    height: 80%;
+    width: 660px;
+    height: 100%;
     position: relative;
     margin-top: 180px;
-    max-width: 680px;
 }
 
 .controls {
@@ -162,14 +161,27 @@ form {
     }
 }
 
+#mainContent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
 .gridCenterCircle {
     position: absolute;
-    width: 261.7%;
+    width: 262.7%;
     /* height: 460px; */
     margin: auto;
-    top: -22.4%;
-    left: -80.9%;
+    top: -22.7%;
+    left: -81.4%;
     pointer-events: none;
+}
+
+.inputDescription {
+        font-size: 12px;
+    font-weight: 200;
+    font-style: italic;
 }
 
 #printDiv {

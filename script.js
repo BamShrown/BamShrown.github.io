@@ -335,9 +335,9 @@ function createAndShowPopup(segment, category, rim, jobTitle, companyName, chose
     var textDiv = document.createElement("div");
     
     popupDiv.setAttribute("class", "infoPopup");
-    popupDiv.style.width = "290px";
+    popupDiv.style.width = "25%";
     popupDiv.style.margin = "20px";
-    popupDiv.style.padding = "5px 20px";
+    popupDiv.style.padding = "5px 17px";
     popupDiv.style.boxShadow = "0 4px 8px rgba(0,0,0,0.1)";
     popupDiv.style.zIndex = "1000"; // Ensure it's above other content
     popupDiv.style.display = "flex";
