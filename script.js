@@ -88,12 +88,17 @@ function showPopupForm(segment, category, rim) {
     for (var i = 1; i <= sizeLength; i++) {
         // Construct the popupForm id dynamically
         var popupFormId = "popupForm" + i;
+        
+        if (rim == 'rim1') {
+            break; 
 
-        // Check if the current popup form matches the selected category
-        if (i == categoryNumber) {
-            document.getElementById(popupFormId).style.display = "block";
-        } else {
-            document.getElementById(popupFormId).style.display = "none";
+            } else {
+            // Check if the current popup form matches the selected category
+            if (i == categoryNumber) {
+                document.getElementById(popupFormId).style.display = "block";
+            } else {
+                document.getElementById(popupFormId).style.display = "none";
+            }
         }
     }
 
@@ -125,7 +130,7 @@ function showPopupForm(segment, category, rim) {
         }
 
         // If item matches category, rim, and segment, add 'selected' class
-        if (itemCategoryMatch && itemRimMatch && itemSegmentMatch) {
+        if (itemCategoryMatch && itemRimMatch && itemSegmentMatch && rim != 'rim1') {
             item.classList.add('selected');
         }
     });
@@ -483,7 +488,7 @@ let segmentCounter = 1; // Initialize a global counter for segment class naming
 function drawGrid(optionsMap = new Map()) {
     const sectors = parseInt(document.getElementById('sectors').value);
     const container = document.getElementById('gridContainer');
-    container.innerHTML = ''; // Clear previous grid
+    
 
     const svgNS = "http://www.w3.org/2000/svg";
     let svg = document.createElementNS(svgNS, "svg");
@@ -541,9 +546,10 @@ let segmentSelector = [];
 function drawSegment(svg, totalSectors, sectorIndex, ringRadii, color, segmentClassName, optionClassName, titles, titleIndex, titleDescriptions) {
     const svgNS = "http://www.w3.org/2000/svg";
     const anglePerSector = (2 * Math.PI) / totalSectors;
-    const startAngle = sectorIndex * anglePerSector;
-    const endAngle = (sectorIndex + 1) * anglePerSector;
+    const startAngle = sectorIndex * anglePerSector - Math.PI / 2; // Adjusted to start from the top
+    const endAngle = (sectorIndex + 1) * anglePerSector - Math.PI / 2; // Adjusted to start from the top
     const midAngle = startAngle + (endAngle - startAngle) / 2; // Midpoint angle for the title
+
 
         // Determine if the segment is an outer segment
         const isOuterSegment = ringRadii.length > 1 && sectorIndex < totalSectors / 2;
@@ -552,10 +558,10 @@ function drawSegment(svg, totalSectors, sectorIndex, ringRadii, color, segmentCl
         const fillColor = isOuterSegment ? '#ccc' : color;
 
     // Calculate the position for the text
-    const outerRadiusAdjustment = 12; // Distance to move text outwards
+    const outerRadiusAdjustment = 10; // Distance to move text outwards
     const adjustedOuterRadius = ringRadii[ringRadii.length - 1] + outerRadiusAdjustment; // Add 30 to the last segment's radius
-    const textX = adjustedOuterRadius * Math.cos(midAngle);
-    const textY = adjustedOuterRadius * Math.sin(midAngle);
+    const textX = adjustedOuterRadius * Math.cos(midAngle); - 1;
+    const textY = adjustedOuterRadius * Math.sin(midAngle) - 3;
 
     for (let i = 0; i < ringRadii.length; i++) {
         const innerRadius = i === 0 ? 0 : ringRadii[i - 1];
@@ -620,7 +626,7 @@ function drawSegment(svg, totalSectors, sectorIndex, ringRadii, color, segmentCl
         // Add each word as a <tspan> element with <br> between them if more than 8 letters
         let currentLine = "";
         words.forEach((word, index) => {
-            if (currentLine.length > 8) {
+            if (currentLine.length > 5) {
                 const tspan = document.createElementNS(svgNS, 'tspan');
                 tspan.setAttribute('x', textX);
                 tspan.setAttribute('dy', '1.2em'); // Adjust vertical spacing
@@ -682,7 +688,8 @@ function drawWhiteLines(svg, sectors, ringRadii) {
 
     // Draw white lines for sectors outside the innermost circle
     for (let i = 0; i < sectors; i++) {
-        const angle = (2 * Math.PI / sectors) * i;
+        // Adjust the start angle to make it start from the top (12 o'clock)
+        const angle = ((2 * Math.PI / sectors) * i) - Math.PI / 2; // Subtract π/2 to rotate the start angle to the top
         // Start the line at the edge of the innermost circle instead of the center
         const line = document.createElementNS(svgNS, "line");
         line.setAttribute('x1', innermostCircleRadius * Math.cos(angle));

@@ -77,8 +77,7 @@ form {
 }
 
 #gridContainer {
-    width: 80%;
-    height: 80%;
+    width: 72%;
     position: relative;
     margin-top: 180px;
     max-width: 680px;
@@ -97,7 +96,7 @@ form {
     width: 290px;
     margin: 20px;
     padding: 10px 15px;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 8px;
+    // box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 8px;
     z-index: 1000;
     display: flex;
     justify-content: space-between;
@@ -160,6 +159,16 @@ form {
         font-size: 14px;
         color: $category3Color;
     }
+}
+
+.gridCenterCircle {
+    position: absolute;
+    width: 153.8%;
+    /* height: 460px; */
+    margin: auto;
+    top: -13.5%;
+    left: -25.7%;
+    pointer-events: none;
 }
 
 #printDiv {
@@ -231,7 +240,8 @@ input[type="number"] {
 }
 
 #categoriesKey {
-    display: flex;
+    // display: flex;
+    display: none;
     width: 100%;
     flex-wrap: wrap;
     justify-content: center;
@@ -296,13 +306,18 @@ input[type="number"] {
     }
     #gridContainer {
         /* All your print styles go here */
-        margin-top: 100px;
+        margin-top: 180px;
         max-width: 480px!important;
     }
 
     .infoPopup {
         width: 250px!important;
     }
+  }
+
+  .rim1 {
+    fill: white!important;
+    background-color: white!important;
   }
 
 .categoryOption1 {
@@ -419,7 +434,7 @@ $category-colors: (
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    margin-top: 100px;
+    margin-top: 140px;
 }
 
 // Circle Images
