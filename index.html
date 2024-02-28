@@ -11,16 +11,17 @@
         <div class="popupImg">
             <img src="logo.png" alt="" style="margin-bottom: 20px">
         </div>
-        <p>This tool helps you to map out your career journey so far within the Coty family.</p><br>
-        <p>There are three stages to your lifetime career:</p>
-        <p><strong>Early</strong> – 0 to 10 years</p>
-        <p><strong>Mid</strong> – 11 to 20 years</p>
-        <p><strong>Later</strong> – 20 years and onwards</p><br>
-        <p>To start, enter your name and click Start. Once you have started, do not refresh your browser as your progress will not be saved.</p><br>
-        <p>You can learn more about each experience by hovering over the title for that section.</p><br>
-        <p>To add a section of experience, click on the relevant segment and add the relevant Job Title and Company. This will be added to the career wheel and record list below. You can use the same job role to complete multiple areas of experience across the wheel.</p><br>
-        <p>You can delete an entry at any time by clicking on the X in the record list.</p><br>
-        <p>Once you are happy with your selections, click Print to save as a PDF or print a paper copy.</p>
+        <p>This tool helps to map your whole career journey so far, across all companies you have worked for, not just COTY.</p>
+        <p> The three rings of the wheel refer to the three stages of your lifetime career: Early (In your first 10 years), Mid (In your career years of 11-20) and Later (after the 20th year of career experience).</p>
+        
+        
+          <p>Once you start, type in your name and click start. Please note once started do not refresh browser, or leave open and return later, as progress will not be saved.</p>
+          <p>The wheel is composed of different domains in the center and each domain consists of different areas of experiences, at the outside of the Wheel. To see what each area of experiences means you can hoover over these words and see the definitions. </p>
+          <p>Click on a segment you wish to color within the wheel. A box will pop-up to enter the Job Title and Company where you gained this experience. Input them and then click ADD. Each time you do this the relevant segment of the wheel will become colored-in and the segment information will be added below the wheel in the correct color code. You can use the same segment to fill in multiple areas of experience if appropriate. </p>
+          <p>You can delete your segment details at any time, just press X on the box below the wheel of the segment you would like to delete. You will be asked if you want this section on the Wheel cleared. Clicking OK will clear all color from this section of the wheel.</p>
+          <p>Once happy with all your input you can click PRINT and this will open your print window. You need to make sure that you select option "Background Graphics" and click select save as PDF or Print.</p>
+             
+        
 
         <!-- <img src="bg_graphics.PNG" alt=""> -->
         <div class="buttonDiv">
@@ -43,32 +44,48 @@
         <div class="controls" style="display: none;">
             <label for="sectors">Sectors:</label>
 
+
+
+
+            <!--                                                       -->
+            <!--       HERE IS WHERE YOU CAN CHANGE THE WHEEL          -->
+            <!-- The lines underneath where it says 'Change the VALUE '-->
+            <!-- is where you can change the 4 different parts.        -->
+            <!-- Firstly, the amount of sectors, then categories,      -->
+            <!-- then the size of each category, then titles, and      -->
+            <!-- then the title descriptions. These are all in the     -->
+            <!-- same order                                            -->
+
+
             <!-- Change the VALUE of here to choose the amount of segments -->
             <input type="number" id="sectors" value="21" min="2" max="36">
             
-            <button onclick="drawGrid()">Draw Grid</button>
-            <div class="option-inputs">
-                <label for="options">Options (comma-separated):</label>
 
-                <!-- Change the VALUE section of here to select the categories -->
-                <input type="text" id="options" placeholder="Choose Categories" value="Operations, Planning, Market Supply, Digital Analytics, Project Management, Quality & Process Assurance">
-                       
-                <label for="sizes">Sizes (comma-separated):</label>
+            <!-- Change the VALUE section of here to select the categories, seperate by commas -->
+            <input id="options" value="Operations, Planning, Market Supply, Digital Analytics, Project Management, Quality & Process Assurance">
+                    
 
-                <!-- Change the VALUE section of here to change the size of each category (follow the same order) -->
-                <input type="text" id="sizes" placeholder="6, 3, 3, 3, 3, 3" value="6, 3, 3, 3, 3, 3">
-                <label for="titles">Segment Titles (comma-separated):</label>
+            <!-- Change the VALUE section of here to change the size of each category, seperate by commas (follow the same order) -->
+            <input id="sizes" value="6, 3, 3, 3, 3, 3">
+            
 
-                <!-- Change the VALUE section here to choose the titles (follow the same order)-->
-                <input type="text" id="titles" placeholder="Select Titles" value="Warehouse Management, Freight Management, Network Design, Engineering, Production Management, Operational Excellence, Life Cycle Management, TPM, Demand & Supply Planning, Value Creation, Customer Collaboration & Business Partnership, Market Forecasting & S&OP, Digital Engineering Analytics, Industrial 4.0 Lighthouse, AI & Machine Learning, Organizational Transformation, Inside out Benchmarking, Analytics & Stakeholder Management, Health & Safety, Sustainability, Quality & Process Management">
-                <label for="titleDescriptions">Title Descritpions (comma-separated):</label>
+            <!-- Change the VALUE section here to choose the titles, seperate by commas (follow the same order)-->
+            <input id="titles" value="Warehouse Management, Freight Management, Network Design, Engineering, Production Management, Operational Excellence, Life Cycle Management, TPM, Demand & Supply Planning, Value Creation, Customer Collaboration & Business Partnership, Market Forecasting & S&OP, Digital Engineering Analytics, Industrial 4.0 Lighthouse, AI & Machine Learning, Organizational Transformation, Inside out Benchmarking, Analytics & Stakeholder Management, Health & Safety, Sustainability, Quality & Process Management">
+            
 
-                <!-- Change the VALUE seciton here to choose each title description (follow the same order) -->
-                <input type="text" id="titleDescriptions" placeholder="Select Titles" value="Warehouse Management Description, Freight Management Description, Network Design Description, Engineering Description, Production Management Description, Operational Excellence Description, Life Cycle Management Description, TPM Description, Demand & Supply Planning Description, Value Creation Description, Customer Collaboration & Business Partnership Description, Market Forecasting & S&OP Description, Digital Engineering Analytics Description, Industrial 4.0 Lighthouse Description, AI & Machine Learning Description, Organizational Transformation Description, Inside out Benchmarking Description, Analytics & Stakeholder Management Description, Health & Safety Description, Sustainability Description, Quality & Process Management Description">
-                
-                
-                <button onclick="updateGrid()">Update Grid</button>
-            </div>
+            <!-- Change the VALUE seciton here to choose each title description, seperate by commas (follow the same order) -->
+            <input id="titleDescriptions" value="Warehouse Management Description, Freight Management Description, Network Design Description, Engineering Description, Production Management Description, Operational Excellence Description, Life Cycle Management Description, TPM Description, Demand & Supply Planning Description, Value Creation Description, Customer Collaboration & Business Partnership Description, Market Forecasting & S&OP Description, Digital Engineering Analytics Description, Industrial 4.0 Lighthouse Description, AI & Machine Learning Description, Organizational Transformation Description, Inside out Benchmarking Description, Analytics & Stakeholder Management Description, Health & Safety Description, Sustainability Description, Quality & Process Management Description">
+            
+        
+
+                <!--                                     -->
+                <!--    DO NOT EDIT PAST THIS LINE       -->
+                <!--                                     -->
+                <!--    DO NOT EDIT PAST THIS LINE       -->
+                <!--                                     -->
+
+
+       
         </div>
 
         <!-- Name of user and wheel -->
@@ -148,7 +165,7 @@
                 <label for="jobTitle" >Job Title:</label><br>
                 <input type="text" id="jobTitle1" name="jobTitle"><br>
                 <label for="companyName">Company Name:</label><br>
-                <label class="inputDescription" for="">(If you've worked for more than one company, seperate by commas)</label>
+                <!-- <label class="inputDescription" for="">(If you've worked for more than one company, seperate by commas)</label> -->
                 <input type="text" id="companyName1" name="companyName"><br><br>
                 <div class="labelButtons">
                     <button type="button" onclick="hidePopupForm1()">CLOSE</button>
@@ -162,7 +179,7 @@
                 <label for="jobTitle">Job Title:</label><br>
                 <input type="text" id="jobTitle2" name="jobTitle"><br>
                 <label for="companyName">Company Name:</label><br>
-                <label class="inputDescription" for="">(If you've worked for more than one company, seperate by commas)</label>
+                <!-- <label class="inputDescription" for="">(If you've worked for more than one company, seperate by commas)</label> -->
                 <input type="text" id="companyName2" name="companyName"><br><br>
                 <div class="labelButtons">
                     <button type="button" onclick="hidePopupForm2()">CLOSE</button>
@@ -175,7 +192,7 @@
                 <label for="jobTitle">Job Title:</label><br>
                 <input type="text" id="jobTitle3" name="jobTitle"><br>
                 <label for="companyName">Company Name:</label><br>
-                <label class="inputDescription" for="">(If you've worked for more than one company, seperate by commas)</label>
+                <!-- <label class="inputDescription" for="">(If you've worked for more than one company, seperate by commas)</label> -->
                 <input type="text" id="companyName3" name="companyName"><br><br>
                 <div class="labelButtons">
                     <button type="button" onclick="hidePopupForm3()">CLOSE</button>
@@ -188,7 +205,7 @@
                 <label for="jobTitle">Job Title:</label><br>
                 <input type="text" id="jobTitle4" name="jobTitle"><br>
                 <label for="companyName">Company Name:</label><br>
-                <label class="inputDescription" for="">(If you've worked for more than one company, seperate by commas)</label>
+                <!-- <label class="inputDescription" for="">(If you've worked for more than one company, seperate by commas)</label> -->
                 <input type="text" id="companyName4" name="companyName"><br><br>
                 <div class="labelButtons">
                     <button type="button" onclick="hidePopupForm4()">CLOSE</button>
@@ -201,7 +218,7 @@
                 <label for="jobTitle">Job Title:</label><br>
                 <input type="text" id="jobTitle5" name="jobTitle"><br>
                 <label for="companyName">Company Name:</label><br>
-                <label class="inputDescription" for="">(If you've worked for more than one company, seperate by commas)</label>
+                <!-- <label class="inputDescription" for="">(If you've worked for more than one company, seperate by commas)</label> -->
                 <input type="text" id="companyName5" name="companyName"><br><br>
                 <div class="labelButtons">
                     <button type="button" onclick="hidePopupForm5()">CLOSE</button>
@@ -215,7 +232,7 @@
                 <label for="jobTitle">Job Title:</label><br>
                 <input type="text" id="jobTitle6" name="jobTitle"><br>
                 <label for="companyName">Company Name:</label><br>
-                <label class="inputDescription" for="">(If you've worked for more than one company, seperate by commas)</label>
+                <!-- <label class="inputDescription" for="">(If you've worked for more than one company, seperate by commas)</label> -->
                 <input type="text" id="companyName6" name="companyName"><br><br>
                 <div class="labelButtons">
                     <button type="button" onclick="hidePopupForm6()">CLOSE</button>
@@ -229,7 +246,7 @@
                 <label for="jobTitle">Job Title:</label><br>
                 <input type="text" id="jobTitle7" name="jobTitle"><br>
                 <label for="companyName">Company Name:</label><br>
-                <label class="inputDescription" for="">(If you've worked for more than one company, seperate by commas)</label>
+                <!-- <label class="inputDescription" for="">(If you've worked for more than one company, seperate by commas)</label> -->
                 <input type="text" id="companyName7" name="companyName"><br><br>
                 <div class="labelButtons">
                     <button type="button" onclick="hidePopupForm7()">CLOSE</button>
@@ -243,7 +260,7 @@
                 <label for="jobTitle">Job Title:</label><br>
                 <input type="text" id="jobTitle8" name="jobTitle"><br>
                 <label for="companyName">Company Name:</label><br>
-                <label class="inputDescription" for="">(If you've worked for more than one company, seperate by commas)</label>
+                <!-- <label class="inputDescription" for="">(If you've worked for more than one company, seperate by commas)</label> -->
                 <input type="text" id="companyName8" name="companyName"><br><br>
                 <div class="labelButtons">
                     <button type="button" onclick="hidePopupForm8()">CLOSE</button>
@@ -257,7 +274,7 @@
                 <label for="jobTitle">Job Title:</label><br>
                 <input type="text" id="jobTitle9" name="jobTitle"><br>
                 <label for="companyName">Company Name:</label><br>
-                <label class="inputDescription" for="">(If you've worked for more than one company, seperate by commas)</label>
+                <!-- <label class="inputDescription" for="">(If you've worked for more than one company, seperate by commas)</label> -->
                 <input type="text" id="companyName9" name="companyName"><br><br>
                 <div class="labelButtons">
                     <button type="button" onclick="hidePopupForm9()">CLOSE</button>
@@ -271,7 +288,7 @@
                 <label for="jobTitle">Job Title:</label><br>
                 <input type="text" id="jobTitle10" name="jobTitle"><br>
                 <label for="companyName">Company Name:</label><br>
-                <label class="inputDescription" for="">(If you've worked for more than one company, seperate by commas)</label>
+                <!-- <label class="inputDescription" for="">(If you've worked for more than one company, seperate by commas)</label> -->
                 <input type="text" id="companyName10" name="companyName"><br><br>
                 <div class="labelButtons">
                     <button type="button" onclick="hidePopupForm10()">CLOSE</button>
