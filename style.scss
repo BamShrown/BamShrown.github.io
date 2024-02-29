@@ -334,6 +334,7 @@ input[type="number"] {
         width: 250px!important;
         print-color-adjust: exact;
         box-shadow: none!important;
+        break-inside: avoid;
     }
 
     .deleteIcon {
