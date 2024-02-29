@@ -319,6 +319,7 @@ input[type="number"] {
 @media print {
     /* All your print styles go here */
 
+
     #printDiv {
         display: none;
     }
@@ -331,7 +332,15 @@ input[type="number"] {
 
     .infoPopup {
         width: 250px!important;
+        print-color-adjust: exact;
+        box-shadow: none!important;
     }
+
+    .deleteIcon {
+        display: none!important;
+    }
+
+
 
 
   }

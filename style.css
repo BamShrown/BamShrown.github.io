@@ -286,6 +286,12 @@ input[type=number] {
   }
   .infoPopup {
     width: 250px !important;
+    -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+    box-shadow: none !important;
+  }
+  .deleteIcon {
+    display: none !important;
   }
 }
 .rim1 {
